@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400;1,6..72,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --color-primary: #1D6A6A;
+  --color-background: #F5F1EB;
+  --color-surface: #FDF9F3;
+  --color-on-background: #0A1628;
+
+  --color-dark-background: #0A1628;
+  --color-dark-on-background: #F5F1EB;
+  --color-dark-surface: #112233;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-background font-sans transition-colors duration-500;
+  }
+
+  .dark body {
+    @apply bg-dark-background text-dark-on-background;
+  }
+}
+
+@layer utilities {
+  .typewriter::after {
+    content: '|';
+    @apply animate-pulse;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .reveal {
+    @apply opacity-0 translate-y-5 transition-all duration-1000 ease-out;
+  }
+
+  .reveal.visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+.bg-campus-overlay {
+  @apply absolute top-0 left-0 w-full h-full object-cover opacity-15 pointer-events-none z-0 grayscale contrast-[1.1];
+}
+
